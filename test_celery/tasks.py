@@ -14,6 +14,12 @@ app = Celery('Django_redis',
 
 @app.task(name='add', track_started=True)
 def add(x, y):
+    """
+    add.delay(x, y) ishlatishda
+    :param x:
+    :param y:
+    :return sum (x,y):
+    """
     print('Ishladiiii')
     return x + y
 
@@ -101,3 +107,4 @@ app.conf.beat_schedule = {
         'args': (10,),
     },
 }
+
